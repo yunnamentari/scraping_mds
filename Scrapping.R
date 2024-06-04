@@ -29,21 +29,11 @@ data <- data.frame(
 
 # MONGODB
 message('Input Data to MongoDB Atlas')
-
-# Connection string dari MongoDB Atlas
-conn_string <- Sys.getenv("ATLAS_URL")
-
-# Membuat koneksi ke MongoDB Atlas
 atlas_conn <- mongo(
   collection = Sys.getenv("ATLAS_COLLECTION"),
-  db = Sys.getenv("ATLAS_DB"),
-  url = conn_string
+  db         = Sys.getenv("ATLAS_DB"),
+  url        = Sys.getenv("ATLAS_URL")
 )
 
-# Memasukkan data ke MongoDB Atlas
 atlas_conn$insert(data)
-
-# Menutup koneksi setelah selesai
 rm(atlas_conn)
-
-message('Scraping and data insertion completed successfully')
