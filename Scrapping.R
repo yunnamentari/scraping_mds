@@ -53,23 +53,3 @@ while(page_number <= max_pages) {
   page_number <- page_number + 1
 }
 
-# MONGODB
-message('Input Data to MongoDB Atlas')
-
-# Connection string dari MongoDB Atlas
-conn_string <- Sys.getenv("ATLAS_URL")
-
-# Membuat koneksi ke MongoDB Atlas
-atlas_conn <- mongo(
-  collection = Sys.getenv("ATLAS_COLLECTION"),
-  db = Sys.getenv("ATLAS_DB"),
-  url = conn_string
-)
-
-# Memasukkan data ke MongoDB Atlas
-atlas_conn$insert(all_data)
-
-# Menutup koneksi setelah selesai
-rm(atlas_conn)
-
-message('Scraping and data insertion completed successfully')
