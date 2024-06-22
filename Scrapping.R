@@ -2,17 +2,15 @@ library(rvest)
 library(tidyverse)
 library(mongolite)
 
-# Inisialisasi URL dasar
-base_url <- "https://sinta.kemdikbud.go.id/authors?page="
-
 # Fungsi untuk scraping data dari satu halaman
-scrape_page <- function(url) {
-  sinta <- read_html(url)
+scrape_page <- function(page_number) {
+  base_url <- paste0("https://sinta.kemdikbud.go.id/authors?page=", page_number)
+  sinta <- read_html(base_url)
   
   NAMA <- sinta %>% html_nodes(".profile-name") %>% html_text(trim = TRUE)
   SINTA_ID <- sinta %>% html_nodes("div.profile-id") %>% html_text(trim = TRUE) %>% gsub("SINTA ID : ", "", .)
   DEPT <- sinta %>% html_nodes("div.profile-dept") %>% html_text(trim = TRUE) %>% gsub("DEPT : ", "", .)
-  UNIV <- sinta %>% html_nodes("div.profile-affil") %>% html_text(trim = TRUE) %>% gsub("UNIV : ", "", .)                               
+  UNIV <- sinta %>% html_nodes("div.profile-affil") %>% html_text(trim = TRUE) %>% gsub("UNIV : ", "", .) 
   
   data <- data.frame(
     time_scraped = Sys.time(),
@@ -24,33 +22,6 @@ scrape_page <- function(url) {
   )
   
   return(data)
-}
-
-# Inisialisasi data frame untuk menampung semua data
-all_data <- data.frame()
-
-# Inisialisasi halaman awal dan batas maksimum halaman
-page_number <- 1
-max_pages <- 5
-
-# Loop untuk scraping dari beberapa halaman
-while(page_number <= max_pages) {
-  # Buat URL untuk halaman saat ini
-  url <- paste0(base_url, page_number)
-  
-  # Scrape data dari halaman saat ini
-  page_data <- scrape_page(url)
-  
-  # Jika data yang didapat kosong, hentikan loop
-  if (nrow(page_data) == 0) {
-    break
-  }
-  
-  # Gabungkan data dari halaman ini ke data sebelumnya
-  all_data <- bind_rows(all_data, page_data)
-  
-  # Update nomor halaman
-  page_number <- page_number + 1
 }
 
 # MONGODB
@@ -66,8 +37,31 @@ atlas_conn <- mongo(
   url = conn_string
 )
 
-# Memasukkan data ke MongoDB Atlas
-atlas_conn$insert(all_data)
+# Inisialisasi halaman awal
+page_number <- 1
+
+# Loop untuk scraping dari beberapa halaman
+while(TRUE) {
+  # Buat URL untuk halaman saat ini
+  url <- paste0("https://sinta.kemdikbud.go.id/authors?page=", page_number)
+  
+  # Scrape data dari halaman saat ini
+  page_data <- scrape_page(page_number)
+  
+  # Jika data yang didapat kosong, hentikan loop
+  if (nrow(page_data) == 0) {
+    break
+  }
+  
+  # Memasukkan data ke MongoDB Atlas
+  atlas_conn$insert(page_data)
+  
+  # Update nomor halaman untuk halaman berikutnya
+  page_number <- page_number + 1
+  
+  # Menunggu 1 menit sebelum menjalankan lagi (jika ingin interval 1 menit sekali)
+  Sys.sleep(60)
+}
 
 # Menutup koneksi setelah selesai
 rm(atlas_conn)
