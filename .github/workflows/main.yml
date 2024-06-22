@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 1 * * *'
   workflow_dispatch:
-    
+
 jobs:
   scrape:
     runs-on: macOS-latest
@@ -15,36 +15,41 @@ jobs:
     steps:
     - name: Start time
       run: echo "$(date) ** $(TZ=Asia/Jakarta date)"
+      
     - uses: actions/checkout@v3
+
     - uses: r-lib/actions/setup-r@v2   
+    
     - name: Install packages
       run: |
         install.packages("rvest", dependencies = TRUE)
         install.packages("tidyverse", dependencies = TRUE)
         install.packages("mongolite")
       shell: Rscript {0}
+
     - name: Create current_page.txt if it does not exist
       run: |
         if [ ! -f current_page.txt ]; then
           echo "1" > current_page.txt
         fi
+
     - name: Get current page
       id: get_page
       run: |
         current_page=$(cat current_page.txt)
         echo "CURRENT_PAGE=$current_page" >> $GITHUB_ENV
+
     - name: Scrape Data
       run: Rscript Scrapping.R ${{ env.CURRENT_PAGE }}
-      depends-on: get_page
+
     - name: Increment page
       run: |
         current_page=$(cat current_page.txt)
         next_page=$((current_page + 1))
         echo $next_page > current_page.txt
-      depends-on: Scrape Data
+
     - name: Commit page update
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Update current page
         file_pattern: current_page.txt
-      depends-on: Increment page
