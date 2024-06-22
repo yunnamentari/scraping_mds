@@ -23,6 +23,11 @@ jobs:
         install.packages("tidyverse", dependencies = TRUE)
         install.packages("mongolite")
       shell: Rscript {0}
+    - name: Create current_page.txt if it does not exist
+      run: |
+        if [ ! -f current_page.txt ]; then
+          echo "1" > current_page.txt
+        fi
     - name: Get current page
       id: get_page
       run: |
