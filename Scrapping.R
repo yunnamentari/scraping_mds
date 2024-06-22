@@ -33,9 +33,17 @@ data <- data.frame(
   stringsAsFactors = FALSE
 )
 
-# Connect to MongoDB
+# Connect to MongoDB with retry and timeout
 connection_string <- Sys.getenv("ATLAS_URL")
-db <- mongo(collection = Sys.getenv("ATLAS_COLLECTION"), db = Sys.getenv("ATLAS_DB"), url = connection_string)
+db <- mongo(
+  collection = Sys.getenv("ATLAS_COLLECTION"), 
+  db = Sys.getenv("ATLAS_DB"), 
+  url = connection_string,
+  options = ssl_options(ssl_ca_certs = "rds-combined-ca-bundle.pem"),
+  verbose = TRUE,
+  timeout = 10000, 
+  retries = 3
+)
 
 # Insert data into MongoDB
 db$insert(data)
