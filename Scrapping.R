@@ -13,7 +13,7 @@ current_page <- as.integer(args[1])
 message('Loading Packages')
 message('Scraping Data')
 
-base_url <- "https://sinta.kemdikbud.go.id/authors?page="
+base_url <- "https://sinta.kemdikbud.go.id/authors?page=1"
 url <- paste0(base_url, current_page)
 
 sinta <- read_html(url)
