@@ -1,8 +1,8 @@
 name: scrap
 
 on:
-  #schedule:
-    #- cron: '0 1 * * *'
+  schedule:
+    - cron: '0 1 * * *'
   workflow_dispatch:
     
 jobs:
@@ -22,6 +22,21 @@ jobs:
         install.packages("rvest", dependencies = TRUE)
         install.packages("tidyverse", dependencies = TRUE)
         install.packages("mongolite")
-      shell: Rscript {0} 
+      shell: Rscript {0}
+    - name: Get current page
+      id: get_page
+      run: |
+        current_page=$(cat current_page.txt)
+        echo "CURRENT_PAGE=$current_page" >> $GITHUB_ENV
     - name: Scrape Data
-      run: Rscript Scrapping.R
+      run: Rscript Scrapping.R ${{ env.CURRENT_PAGE }}
+    - name: Increment page
+      run: |
+        current_page=$(cat current_page.txt)
+        next_page=$((current_page + 1))
+        echo $next_page > current_page.txt
+    - name: Commit page update
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Update current page
+        file_pattern: current_page.txt
