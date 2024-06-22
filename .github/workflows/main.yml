@@ -2,8 +2,8 @@ name: scrap
 
 on:
   # Uncomment the schedule block to run the workflow at a specific time.
-  # schedule:
-  #   - cron: '0 1 * * *'
+   schedule:
+     - cron: '0 1 * * *'
   workflow_dispatch:
     
 jobs:
