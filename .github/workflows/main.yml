@@ -20,6 +20,14 @@ jobs:
         install.packages("rvest", dependencies = TRUE)
         install.packages("tidyverse", dependencies = TRUE)
         install.packages("mongolite")
-      shell: Rscript {0}
+      shell: Rscript {0} 
     - name: Scrape Data
       run: Rscript Scrapping.R
+    - name: Save last scraped page
+      run: |
+        echo "${{ secrets.GITHUB_TOKEN }}" > .token
+        git config --global user.email "your-email@example.com"
+        git config --global user.name "your-username"
+        git add last_page.txt
+        git commit -m "Update last scraped page"
+        git push
