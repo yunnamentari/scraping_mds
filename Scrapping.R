@@ -17,7 +17,7 @@ message('Loading Packages')
 message('Scraping Data')
 
 # Base URL for scraping
-base_url <- "https://sinta.kemdikbud.go.id/authors?page=2"
+base_url <- "https://sinta.kemdikbud.go.id/authors?page=3"
 url <- paste0(base_url, current_page)
 
 # Read the HTML content from the URL
