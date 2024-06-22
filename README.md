@@ -1,3 +1,4 @@
+[![scrap](https://github.com/yunnamentari/scraping_mds/actions/workflows/main.yml/badge.svg)](https://github.com/yunnamentari/scraping_mds/actions/workflows/main.yml)
 # scraping_mds
 
 <p align="center">
