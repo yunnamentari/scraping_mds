@@ -12,7 +12,7 @@ scrape_page <- function(url) {
   NAMA <- sinta %>% html_nodes(".profile-name") %>% html_text(trim = TRUE)
   SINTA_ID <- sinta %>% html_nodes("div.profile-id") %>% html_text(trim = TRUE) %>% gsub("SINTA ID : ", "", .)
   DEPT <- sinta %>% html_nodes("div.profile-dept") %>% html_text(trim = TRUE) %>% gsub("DEPT : ", "", .)
-  UNIV <- sinta %>% html_nodes("div.profile-affil") %>% html_text(trim = TRUE) %>% gsub("UNIV : ", "", .)                               # Ubah ke numerik jika diperlukan
+  UNIV <- sinta %>% html_nodes("div.profile-affil") %>% html_text(trim = TRUE) %>% gsub("UNIV : ", "", .)                               
   
   data <- data.frame(
     time_scraped = Sys.time(),
