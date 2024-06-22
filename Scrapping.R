@@ -39,7 +39,6 @@ db <- mongo(
   collection = Sys.getenv("ATLAS_COLLECTION"), 
   db = Sys.getenv("ATLAS_DB"), 
   url = connection_string,
-  options = ssl_options(ssl_ca_certs = "rds-combined-ca-bundle.pem"),
   verbose = TRUE,
   timeout = 10000, 
   retries = 3
