@@ -2,7 +2,7 @@ name: scrap
 
 on:
   schedule:
-    - cron: '0 1 * * * *'
+    - cron: '*/1 * * * *'
   workflow_dispatch:
     
 jobs:
