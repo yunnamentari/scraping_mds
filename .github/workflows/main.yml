@@ -35,13 +35,16 @@ jobs:
         echo "CURRENT_PAGE=$current_page" >> $GITHUB_ENV
     - name: Scrape Data
       run: Rscript Scrapping.R ${{ env.CURRENT_PAGE }}
+      depends-on: get_page
     - name: Increment page
       run: |
         current_page=$(cat current_page.txt)
         next_page=$((current_page + 1))
         echo $next_page > current_page.txt
+      depends-on: Scrape Data
     - name: Commit page update
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Update current page
         file_pattern: current_page.txt
+      depends-on: Increment page
