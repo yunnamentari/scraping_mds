@@ -16,7 +16,7 @@
 ## :bookmark_tabs: Menu
 - [About](#pushpin-About)
 - [Project Description](#clipboard-Project-Description)
-- [Document](#exclamation-Document)
+- [Document](#memo-Document)
 - [Scraping Data Visualization](#bar_chart-Scraping-Data-Visualization)
 - [PPT](#open_file_folder-PPT)
 - [Developer](#heavy_heart_exclamation-Developer)
@@ -41,7 +41,7 @@ Data diambil sebanyak 30 data yang mencakup:
 - Universitas: Institusi pendidikan tinggi di mana peneliti berafiliasi.
 - SINTA Score Overall: Skor keseluruhan dari SINTA yang mencerminkan kinerja peneliti berdasarkan berbagai faktor seperti publikasi, sitasi, dan aktivitas ilmiah lainnya.
 
-## :exclamation: Document
+## :memo: Document
 
 ```
 {"_id":{"$oid":"6677c0e2111b7755e90b5491"},"NAMA":"ASEP BAYU DANI NANDIYANTO","SINTA_ID":"5974504","DEPT":"Kimia (S2)","UNIV":"Universitas Pendidikan Indonesia","SCORE":"15.992"}
