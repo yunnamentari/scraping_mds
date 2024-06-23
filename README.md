@@ -43,6 +43,7 @@ Data diambil sebanyak 30 data yang mencakup:
 
 ## :memo: Document
 
+Berikut ini adalah salah satu contoh dokumen data di Atlas MongoDB yang merupakan hasil scraping website SINTA KEMDIKBUD :
 ```
 {"_id":{"$oid":"6677c0e2111b7755e90b5491"},
 "NAMA":"ASEP BAYU DANI NANDIYANTO",
