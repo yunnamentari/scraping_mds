@@ -9,8 +9,9 @@
 
 
 # Scraping Website SINTA ID
-</div>
 [![scrap](https://github.com/yunnamentari/scraping_mds/actions/workflows/main.yml/badge.svg)](https://github.com/yunnamentari/scraping_mds/actions/workflows/main.yml)
+
+</div>
 
 ## :bookmark_tabs: Menu
 - [About](#pushpin-About)
