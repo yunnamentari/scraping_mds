@@ -51,7 +51,7 @@ Berikut merupakan link hasil visualisasi data scraping melalui Rpubs : http://rp
 
 ## :open_file_folder: PPT
 
-Berikut merupakan file PPT yang dapat di akses melalui : Yunna Mentari Indah_G1501231017.pdf
+Berikut merupakan file PPT yang dapat di akses melalui : https://ipb.link/ppt-scraping-data
 
 ## :heavy_heart_exclamation: Developer
 
