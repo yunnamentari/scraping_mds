@@ -17,7 +17,7 @@
 - [About](#pushpin-About)
 - [Project Description](#clipboard-Project-Description)
 - [Document](#exclamation-Document)
-- [Scraping Data Visualization](#heavy_check_mark-Scraping-Data-Visualization)
+- [Scraping Data Visualization](#bar_chart-Scraping-Data-Visualization)
 - [PPT](#open_file_folder-PPT)
 - [Developer](#heavy_heart_exclamation-Developer)
 
@@ -35,17 +35,18 @@ Pada proyek ini melakukan scraping data dari situs SINTA (Science and Technology
 
 Data diambil sebanyak 30 data yang mencakup:
 
-Nama: Nama lengkap dari peneliti yang terdaftar dalam SINTA.
-SINTA ID: Identifikasi unik yang digunakan dalam sistem SINTA untuk mengidentifikasi peneliti.
-Departemen: Unit atau bagian di universitas tempat peneliti terafiliasi atau bekerja.
-Universitas: Institusi pendidikan tinggi di mana peneliti berafiliasi.
-SINTA Score Overall: Skor keseluruhan dari SINTA yang mencerminkan kinerja peneliti berdasarkan berbagai faktor seperti publikasi, sitasi, dan aktivitas ilmiah lainnya.
+### :round_pushpin: Nama: Nama lengkap dari peneliti yang terdaftar dalam SINTA.
+### :spiral_notepad: SINTA ID: Identifikasi unik yang digunakan dalam sistem SINTA untuk mengidentifikasi peneliti.
+### :office: Departemen: Unit atau bagian di universitas tempat peneliti terafiliasi atau bekerja.
+### :earth_asia: Universitas: Institusi pendidikan tinggi di mana peneliti berafiliasi.
+### :memo: SINTA Score Overall: Skor keseluruhan dari SINTA yang mencerminkan kinerja peneliti berdasarkan berbagai faktor seperti publikasi, sitasi, dan aktivitas ilmiah lainnya.
 
 ## :exclamation: Document
 
+```
 {"_id":{"$oid":"6677c0e2111b7755e90b5491"},"NAMA":"ASEP BAYU DANI NANDIYANTO","SINTA_ID":"5974504","DEPT":"Kimia (S2)","UNIV":"Universitas Pendidikan Indonesia","SCORE":"15.992"}
-
-## :heavy_check_mark: Scraping Data Visualization
+```
+## :bar_chart: Scraping Data Visualization
 
 Berikut merupakan link hasil visualisasi data scraping melalui Rpubs : http://rpubs.com/yunnamentari/Visualisasi-Data-Scraping
 
