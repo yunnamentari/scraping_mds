@@ -1,5 +1,5 @@
 
-# scraping_mds
+# Tugas Project MDS
 
 <p align="center">
   <img width="715" height="350" src="sinta_logo.png">
@@ -44,7 +44,11 @@ Data diambil sebanyak 30 data yang mencakup:
 ## :memo: Document
 
 ```
-{"_id":{"$oid":"6677c0e2111b7755e90b5491"},"NAMA":"ASEP BAYU DANI NANDIYANTO","SINTA_ID":"5974504","DEPT":"Kimia (S2)","UNIV":"Universitas Pendidikan Indonesia","SCORE":"15.992"}
+{"_id":{"$oid":"6677c0e2111b7755e90b5491"},
+"NAMA":"ASEP BAYU DANI NANDIYANTO",
+"SINTA_ID":"5974504","DEPT":"Kimia (S2)",
+"UNIV":"Universitas Pendidikan Indonesia",
+"SCORE":"15.992"}
 ```
 ## :bar_chart: Scraping Data Visualization
 
