@@ -35,11 +35,11 @@ Pada proyek ini melakukan scraping data dari situs SINTA (Science and Technology
 
 Data diambil sebanyak 30 data yang mencakup:
 
-### :round_pushpin: Nama: Nama lengkap dari peneliti yang terdaftar dalam SINTA.
-### :spiral_notepad: SINTA ID: Identifikasi unik yang digunakan dalam sistem SINTA untuk mengidentifikasi peneliti.
-### :office: Departemen: Unit atau bagian di universitas tempat peneliti terafiliasi atau bekerja.
-### :earth_asia: Universitas: Institusi pendidikan tinggi di mana peneliti berafiliasi.
-### :memo: SINTA Score Overall: Skor keseluruhan dari SINTA yang mencerminkan kinerja peneliti berdasarkan berbagai faktor seperti publikasi, sitasi, dan aktivitas ilmiah lainnya.
+- Nama: Nama lengkap dari peneliti yang terdaftar dalam SINTA.
+- SINTA ID: Identifikasi unik yang digunakan dalam sistem SINTA untuk mengidentifikasi peneliti.
+- Unit atau bagian di universitas tempat peneliti terafiliasi atau bekerja.
+- Universitas: Institusi pendidikan tinggi di mana peneliti berafiliasi.
+- SINTA Score Overall: Skor keseluruhan dari SINTA yang mencerminkan kinerja peneliti berdasarkan berbagai faktor seperti publikasi, sitasi, dan aktivitas ilmiah lainnya.
 
 ## :exclamation: Document
 
